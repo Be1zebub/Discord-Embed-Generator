@@ -1,0 +1,75 @@
+form {
+  width: 600px;
+  margin-left: 4%;
+  margin-top: 3%;
+}
+
+.form-inline {
+  align-items: center;
+}
+
+#InputWebhook {
+  width: 82.5%;
+}
+
+
+#InputTitle {
+  min-width: 82.5%;
+}
+
+#InputColor {
+  width: auto;
+  min-width: 17.5%;
+  display: inline;
+}
+
+.security {
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+  text-security: disc;
+}
+
+@media (max-width: 640px) {
+  form {
+    width: 450px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  #InputWebhook {
+    width: 72.5%;
+  }
+}
+
+@media (max-width: 450px) {
+  form {
+    width: 90%;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  #InputWebhook {
+    width: 71%;
+  }
+}
+
+@media (max-width: 410px) {
+  h1 {
+    font-size: 20px;
+  }
+  #InputWebhook {
+    width: 70%;
+  }
+}
+
+@media (max-width: 375px) {
+  #InputWebhook {
+    width: 68.5%;
+  }
+}
+
+@media (max-width: 320px) {
+  #InputWebhook {
+    width: 64%;
+  }
+}
