@@ -1,3 +1,5 @@
+Options -Indexes
+
 <Files ~ "(.lock)">
 	Order allow,deny
 	Deny from all
