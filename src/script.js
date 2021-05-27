@@ -55,12 +55,21 @@ function doOnReady(cback) {
     }
 }
 
+function readBody(xhr) {
+    var data;
+    if (!xhr.responseType || xhr.responseType === "text") {
+        data = xhr.responseText;
+    } else if (xhr.responseType === "document") {
+        data = xhr.responseXML;
+    } else {
+        data = xhr.response;
+    }
+    return data;
+}
+
+var alert_timer = null;
+
 function sendMessage() {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('POST', document.getElementById('InputWebhook').value);
-    xhr.setRequestHeader('Content-type', 'application/json');
-
     var rawColor = document.getElementById('InputColor').value;
 
     var params = {
@@ -71,8 +80,38 @@ function sendMessage() {
             "description": document.getElementById('InputText').value,
             "color": hexdec(rawColor),
         }],
+    };
+
+    if (alert_timer !== null) {
+        clearTimeout(alert_timer);
+        alert_timer = null;
+
+        document.getElementById("alert_err").hidden = true;
+        document.getElementById("alert_succ").hidden = true;
     }
 
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', document.getElementById('InputWebhook').value);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.onreadystatechange = function() {
+        var success = false;
+        if (this.status >= 200 && this.status < 300) {
+            success = true;
+        }
+
+        document.getElementById("alert_err").hidden = !success;
+        document.getElementById("alert_succ").hidden = success;
+
+        if (alert_timer !== null) {
+            clearTimeout(alert_timer);
+            alert_timer = null;
+        }
+
+        alert_timer = setTimeout(function() {
+            document.getElementById("alert_err").hidden = true;
+            document.getElementById("alert_succ").hidden = true;
+        }, 2500);
+    };
     xhr.send( JSON.stringify(params) );
 
     setParam("nick", params.username);
