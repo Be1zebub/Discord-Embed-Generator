@@ -29,6 +29,8 @@
                 <h1>Simple discord embed generator</h1> 
 
                 <br>
+                <div id="alert_err" class="alert alert-success" role="alert" hidden>Success</div>
+                <div id="alert_succ" class="alert alert-warning" role="alert" hidden>Error</div>
 
                 <div class="form-group form-inline">
                     <input type="text" class="form-control" id="InputWebhook" placeholder="Webhook URL" value="<?php echo($code_result) ?>" required>
@@ -53,7 +55,6 @@
                 <div id="TextInputParent" class="form-group">
                     <textarea class="form-control" rows="3" placeholder="Message text" id="InputText" required>></textarea>
                 </div>
-
             
                 <button type='button' class='btn btn-primary' id="SendBtn">Send to discord</button>
             </form>
