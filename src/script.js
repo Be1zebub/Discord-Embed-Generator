@@ -70,7 +70,7 @@ function readBody(xhr) {
 var alert_timer = null;
 
 function sendMessage() {
-    var rawColor = document.getElementById('InputColor').value;
+    var rawColor = pickr.getColor().toHEXA().toString();//document.getElementById('InputColor').value;
 
     var params = {
         username: document.getElementById('InputNick').value,
@@ -134,13 +134,63 @@ params2values["InputNick"] = "nick";
 params2values["InputAvatar"] = "avatar";
 params2values["InputTitle"] = "title";
 params2values["InputText"] = "message";
-params2values["InputColor"] = "color";
+//params2values["InputColor"] = "color";
 
 var default_pram_values = [];
 default_pram_values["color"] = "#2894dc";
 
+function GetQueryParam(param) {
+    return GetParam(param, default_pram_values[param] !== undefined ? default_pram_values[param] : "");
+}
+
+var pickr;
+
 doOnReady(function() {
     Object.entries(params2values).forEach(([id, param]) => {
-        document.getElementById(id).value = GetParam(param, default_pram_values[param] !== undefined ? default_pram_values[param] : "");
+        document.getElementById(id).value = GetQueryParam(param);
+    });
+
+    pickr = Pickr.create({
+        el: ".color-picker",
+        theme: "monolith", // monolith, classic, nano
+        appClass: "color-picker",
+        default: GetQueryParam("color"),
+        defaultRepresentation: "HEX",
+        position: "top-start",
+        inline: false,
+        disabled: false,
+        swatches: [
+            "rgba(244, 67, 54, 1)",
+            "rgba(233, 30, 99, 1)",
+            "rgba(156, 39, 176, 1)",
+            "rgba(33, 150, 243, 1)",
+            "rgba(3, 169, 244, 1)",
+            "rgba(0, 188, 212, 1)",
+            "rgba(0, 150, 136, 1)",
+            "rgba(76, 175, 80, 1)",
+            "rgba(139, 195, 74, 1)",
+            "rgba(205, 220, 57, 1)",
+            "rgba(255, 235, 59, 1)",
+            "rgba(255, 193, 7, 1)"
+        ],
+        components: {
+            preview: true,
+            opacity: false,
+            hue: true,
+            interaction: {
+                hex: true,
+                rgba: true,
+                hsla: true,
+                hsva: true,
+                cmyk: true,
+                input: true,
+                clear: false,
+                save: false
+            }
+        }
+    });
+
+    pickr.on("change", (color, source, instance) => {
+        pickr.applyColor();
     });
 });
