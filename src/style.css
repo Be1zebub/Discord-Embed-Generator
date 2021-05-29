@@ -14,7 +14,7 @@ form {
 
 
 #InputTitle {
-  min-width: 82.5%;
+  width: calc(100% - 2rem - 1px);
 }
 
 #InputColor {
@@ -72,4 +72,45 @@ form {
   #InputWebhook {
     width: 64%;
   }
+}
+
+body, html {
+  background-color: rgb(35, 40, 60) !important;
+  color: white !important;
+}
+
+input, .input-group-append {
+  height: 2em !important;
+}
+
+input, textarea, input::selection {
+  background-color: rgb(25, 30, 45) !important;
+  color: white !important;
+}
+
+button {
+  background-color: rgb(114, 137, 218) !important;
+  border: none  !important;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  background-color: rgb(114, 137, 218) !important;
+}
+
+.color-picker {
+  background-color: rgb(30, 35, 50) !important;
+  width: 24em !important;
+}
+
+.pcr-button, .pickr {
+  border: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white !important;
 }
