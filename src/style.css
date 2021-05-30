@@ -18,6 +18,7 @@ form {
 
 #CreateWebhook {
   width: 100%;
+  padding: 0px !important;
 }
 
 #InputTitle {
@@ -72,6 +73,14 @@ input, .input-group-append {
 input, textarea, input::selection {
   background-color: rgb(25, 30, 45) !important;
   color: white !important;
+}
+
+input::selection, textarea::selection {
+  color: rgb(175, 175, 175) !important;
+}
+
+br {
+  user-select: none;
 }
 
 button {
