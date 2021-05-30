@@ -20,46 +20,9 @@
 <body>
     <?php
         if ($CONFIG["is not configured"] == true) {
-    ?>
-            <h1>read config.php</h1> 
-    <?php
-            die();
+            die("<h1>read config.php</h1></body></html>");
         } else {
-    ?>
-            <form>
-                <h1>Simple discord embed generator</h1> 
-
-                <br>
-                <div id="alert_err" class="alert alert-success" role="alert" hidden>Success</div>
-                <div id="alert_succ" class="alert alert-warning" role="alert" hidden>Error</div>
-
-                <div class="form-group form-inline">
-                    <input type="text" class="form-control" id="InputWebhook" placeholder="Webhook URL" value="<?php echo($code_result) ?>" required>
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-light" id="CreateWebhook">Create one</button>
-                    </div>
-                </div>
-            
-                <div class="form-group">
-                    <input type="text" class="form-control" id="InputNick" placeholder="Author name">
-                </div>
-            
-                <div class="form-group">
-                    <input type="text" class="form-control" id="InputAvatar" placeholder="Avatar image url">
-                </div>
-
-                <div class="form-group form-inline">
-                    <input type="text" class="form-control" id="InputTitle" placeholder="Embed title">
-                    <input class="form-control color-picker" type="color" id="InputColor" colorpick-eyedropper-active="false">
-                </div>
-            
-                <div id="TextInputParent" class="form-group">
-                    <textarea class="form-control" rows="3" placeholder="Message text" id="InputText" required>></textarea>
-                </div>
-            
-                <button type='button' class='btn btn-primary' id="SendBtn">Send to discord</button>
-            </form>
-    <?php
+            require("form.html");
         }
     ?>
 </body>
