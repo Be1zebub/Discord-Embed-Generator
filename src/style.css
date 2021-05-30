@@ -9,9 +9,16 @@ form {
 }
 
 #InputWebhook {
-  width: 82.5%;
+  width: calc(100% - 6.5em);
 }
 
+.input-group-append {
+  width: 6.5em;
+}
+
+#CreateWebhook {
+  width: 100%;
+}
 
 #InputTitle {
   width: calc(100% - 2rem - 1px);
@@ -36,9 +43,6 @@ form {
   h1 {
     font-size: 28px;
   }
-  #InputWebhook {
-    width: 72.5%;
-  }
 }
 
 @media (max-width: 450px) {
@@ -48,29 +52,11 @@ form {
   h1 {
     font-size: 24px;
   }
-  #InputWebhook {
-    width: 71%;
-  }
 }
 
 @media (max-width: 410px) {
   h1 {
     font-size: 20px;
-  }
-  #InputWebhook {
-    width: 70%;
-  }
-}
-
-@media (max-width: 375px) {
-  #InputWebhook {
-    width: 68.5%;
-  }
-}
-
-@media (max-width: 320px) {
-  #InputWebhook {
-    width: 64%;
   }
 }
 
