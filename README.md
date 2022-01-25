@@ -10,3 +10,5 @@ I would not like to deviate from the principles of a simple application, so if y
 ![Desktop](https://i.imgur.com/HqZZh4z.png)
 #### Mobile
 ![Mobile](https://i.imgur.com/nWsjkt9.png)
+
+<img alt="Visitors" src="https://visitor-badge.laobi.icu/badge?page_id=Be1zebub.Discord-Embed-Generator"/>
